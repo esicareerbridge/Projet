@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EsiCareerBridge - Recherche de Stage</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #2ecc71;
+            --warning: #f39c12;
+            --text: #333;
+            --text-light: #7f8c8d;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --radius: 8px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo img {
+            width: 48px;
+            height: 48px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .logo-text span {
+            color: var(--accent);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .cta-button {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: var(--radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        
+        .cta-button:hover {
+            background-color: #c0392b;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .btn-primary {
+            background-color: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: var(--radius);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: #c0392b;
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            padding: 12px 30px;
+            border: 2px solid white;
+            border-radius: var(--radius);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-secondary:hover {
+            background-color: white;
+            color: var(--primary);
+        }
+        
+        /* Content Section */
+        .content-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .linkedin-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .linkedin-card {
+            background-color: var(--light);
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+        
+        .linkedin-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .linkedin-card h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .linkedin-card p {
+            margin-bottom: 15px;
+        }
+        
+        .tool-link {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 8px 15px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        
+        .tool-link:hover {
+            background-color: #2980b9;
+        }
+        
+        .tool-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .tool-list li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .tool-list li:before {
+            content: "🔗";
+            position: absolute;
+            left: 0;
+        }
+        
+        .formula-box {
+            background-color: white;
+            border-left: 4px solid var(--accent);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 var(--radius) var(--radius) 0;
+        }
+        
+        .formula-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .example-box {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: var(--radius);
+            margin: 15px 0;
+            border: 1px solid #e9ecef;
+        }
+        
+        .keywords-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .keyword-tag {
+            background-color: var(--secondary);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        .resources {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .resource-card {
+            flex: 1;
+            min-width: 200px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            border-left: 3px solid var(--secondary);
+        }
+        
+        .resource-card h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: var(--radius);
+            font-weight: bold;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+            text-decoration: none;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+            text-decoration: none;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px 15px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        
+        .tool-table {
+            width: 100%;
+            margin: 20px 0;
+        }
+        
+        .tool-table td {
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .tool-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        /* Internship Container Styles */
+        .internship-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .internship-container h2 {
+            color: #0056b3;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 2.2rem;
+        }
+        
+        .internship-container h3 {
+            color: #333;
+            margin-top: 30px;
+            border-left: 5px solid #ffcc00;
+            padding-left: 10px;
+            font-size: 1.6rem;
+        }
+        
+        .internship-container h4 {
+            color: #007bff;
+            margin-top: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .internship-container ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .internship-container ul li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .internship-container ul li:before {
+            content: '•';
+            color: #0056b3;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        
+        .internship-container .section-list > li:before {
+            content: '✓';
+            color: #28a745;
+        }
+        
+        .internship-container .contact-list li:before {
+            content: '🔗';
+            color: #dc3545;
+        }
+        
+        .internship-container strong {
+            color: #0056b3;
+        }
+        
+        .internship-container a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .internship-container a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+        
+        .internship-container article {
+            margin-bottom: 25px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: var(--radius);
+            border-left: 4px solid #007bff;
+        }
+        
+        .internship-container hr {
+            margin: 30px 0;
+            border: none;
+            border-top: 2px solid #e9ecef;
+        }
+        
+        .sources {
+            margin-top: 40px;
+        }
+        
+        /* Search Section Styles */
+        .search-section {
+            background-color: #f0f5ff;
+            padding: 40px 20px;
+            margin-top: 40px;
+        }
+        
+        .search-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .search-container h2 {
+            color: var(--primary);
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
+        
+        .search-container p {
+            margin-top: 20px;
+            color: var(--text);
+        }
+        
+        .search-container a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .search-container a:hover {
+            text-decoration: underline;
+        }
+        
+        .search-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-group label {
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--primary);
+        }
+        
+        .form-control {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: var(--radius);
+            font-size: 1rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .search-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: var(--radius);
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s;
+            align-self: end;
+        }
+        
+        .search-btn:hover {
+            background: var(--secondary);
+        }
+        
+        /* Results Grid */
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .internship-result-card {
+            background: white;
+            border: 1px solid #e9ecef;
+            border-radius: var(--radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .internship-result-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .internship-result-card h4 {
+            color: var(--primary);
+            margin: 0 0 10px 0;
+            font-size: 1.2rem;
+        }
+        
+        .internship-result-card .company-name {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+        
+        .internship-result-card .location {
+            display: flex;
+            align-items: center;
+            margin: 8px 0;
+            color: var(--text-light);
+        }
+        
+        .internship-result-card .location:before {
+            content: "📍";
+            margin-right: 8px;
+        }
+        
+        .internship-result-card .salary {
+            display: flex;
+            align-items: center;
+            margin: 8px 0;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+        
+        .internship-result-card .salary:before {
+            content: "💰";
+            margin-right: 8px;
+        }
+        
+        .internship-result-card .duration {
+            display: flex;
+            align-items: center;
+            margin: 8px 0;
+            color: var(--text-light);
+        }
+        
+        .internship-result-card .duration:before {
+            content: "⏱️";
+            margin-right: 8px;
+        }
+        
+        .internship-result-card .remote-type {
+            display: inline-block;
+            background-color: var(--light);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--primary);
+            margin-top: 12px;
+            font-weight: 500;
+        }
+        
+        .internship-result-card .apply-btn {
+            display: block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: var(--radius);
+            margin-top: 15px;
+            width: 100%;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .internship-result-card .apply-btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-light);
+        }
+        
+        .no-results p {
+            font-size: 1.1rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #34495e;
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .linkedin-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .resources {
+                flex-direction: column;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <img src="media/logo.png" alt="EsiCareerBridge Logo">
+                    <div class="logo-text">Esi<span>CareerBridge</span></div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="accueil.html">Accueil</a></li>
+                    <li><a href="linkedin.html">Optimisation LinkedIn</a></li>
+                    <li><a href="stage.html">Recherche de Stage</a></li>
+                    <li><a href="soft.html">Soft Skills</a></li>
+                    <li><a href="index.html">Avis et Suggestions</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <button class="cta-button" onclick="window.location.href='login.html'">Se connecter</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Recherche de Stage</h1>
+            <p>Trouvez le stage qui correspond à vos aspirations professionnelles</p>
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="document.getElementById('recherche-stage').scrollIntoView({behavior: 'smooth'})">Voir le guide complet</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Internship Search Section -->
+    <section class="content-section" id="recherche-stage" aria-labelledby="recherche-stage-heading">
+        <div class="container">
+            <div class="internship-container">
+                <h2 id="recherche-stage-heading">Recherche de stage</h2>
+                <p><strong>Comment trouver un stage au Maroc</strong></p>
+                <p>Cette page vous guidera à travers les étapes et les ressources clés pour trouver un stage au Maroc.</p>
+
+                <section aria-labelledby="types-stages">
+                    <h3 id="types-stages">1. Types de stages</h3>
+                    <p>Au Maroc, on distingue principalement les types de stages suivants :</p>
+                    <ul>
+                        <li><strong>Stage d'initiation:</strong> Stage de courte durée (généralement 1 à 2 mois) effectué en première ou deuxième année d'études supérieures.</li>
+                        <li><strong>Stage d'application:</strong> Stage de durée moyenne (2 à 3 mois) qui permet de mettre en pratique les connaissances acquises.</li>
+                        <li><strong>Projet de Fin d'Études (PFE):</strong> Stage de longue durée (4 à 6 mois) qui clôture le cycle d'études et qui est souvent obligatoire pour l'obtention du diplôme.</li>
+                        <li><strong>Stage de pré-embauche:</strong> Stage qui peut déboucher sur un contrat de travail si le stagiaire donne satisfaction à l'entreprise.</li>
+                    </ul>
+                </section>
+
+                <section aria-labelledby="methodes-recherche">
+                    <h3 id="methodes-recherche">2. Méthodes de recherche alternatives</h3>
+                    <p>En plus des plateformes en ligne, d'autres méthodes peuvent s'avérer très efficaces :</p>
+                    <ul class="section-list">
+                        <li><strong>Candidatures spontanées:</strong> N'hésitez pas à envoyer votre CV et une lettre de motivation aux entreprises qui vous intéressent, même si elles n'ont pas publié d'offres de stage.</li>
+                        <li><strong>Réseautage:</strong> Activez votre réseau professionnel et personnel. Parlez de votre recherche à vos professeurs, à d'anciens étudiants de votre école, à vos amis et à votre famille.</li>
+                        <li><strong>Réseaux sociaux professionnels:</strong> LinkedIn et Viadeo sont des outils puissants pour trouver des offres de stage et pour contacter directement des recruteurs.</li>
+                    </ul>
+                </section>
+
+                <section aria-labelledby="conseils-candidature">
+                    <h3 id="conseils-candidature">3. Conseils pour votre candidature</h3>
+                    <ul class="section-list">
+                        <li><strong>Soignez votre CV et votre lettre de motivation:</strong> Adaptez votre CV et votre lettre de motivation à chaque offre de stage. Mettez en avant vos compétences et vos expériences pertinentes.</li>
+                        <li><strong>Valorisez vos projets:</strong> Si vous n'avez pas d'expérience professionnelle, mettez en avant vos projets académiques, vos activités associatives ou vos centres d'intérêt.</li>
+                        <li><strong>Préparez vos entretiens:</strong> Renseignez-vous sur l'entreprise et le poste avant chaque entretien. Préparez des réponses aux questions courantes et entraînez-vous à présenter votre parcours et vos motivations.</li>
+                    </ul>
+                </section>
+
+                <section aria-labelledby="stages-informatique">
+                    <h3 id="stages-informatique">4. Focus sur les stages en informatique et programmation</h3>
+                    <p>Le secteur de l'informatique au Maroc est en pleine croissance et offre de nombreuses opportunités de stage pour les étudiants. Les villes de Casablanca et Rabat sont les principaux bassins d'emploi pour les métiers de l'IT.</p>
+
+                    <article aria-labelledby="dev-web">
+                        <h4 id="dev-web">Développement web</h4>
+                        <p><strong>Compétences recherchées:</strong> HTML, CSS, JavaScript, frameworks front-end (React, Angular, Vue.js), langages back-end (Node.js, Python, PHP), bases de données (SQL, NoSQL), Git.</p>
+                        <p><strong>Entreprises qui recrutent:</strong> 4D Maroc, Smart Service, Oriental Group, Akkodis, Inetum, VISEO, Niji, TYTHON.</p>
+                    </article>
+
+                    <article aria-labelledby="data-science">
+                        <h4 id="data-science">Data Science</h4>
+                        <p><strong>Compétences recherchées:</strong> Statistiques, analyse de données, Python, R, SQL, outils de machine learning (scikit-learn, TensorFlow, Keras), outils de data-visualisation (Power BI, Tableau, matplotlib).</p>
+                        <p><strong>Entreprises qui recrutent:</strong> Bertrandt Group, INDATACORE, Coface, Lafargeholcim, ALTEN, Orange.</p>
+                    </article>
+
+                    <article aria-labelledby="cybersecurite">
+                        <h4 id="cybersecurite">Cybersécurité</h4>
+                        <p><strong>Compétences recherchées:</strong> Concepts de cybersécurité, ISO 27001, CISSP, CISM, CEH, Kali Linux, Wireshark, Metasploit.</p>
+                        <p><strong>Entreprises qui recrutent:</strong> NEXTDEFENSE, FORMIND, Digital Wave Center (DWC), IDEMIA, ENGIE, EyeQ Dot Net.</p>
+                    </article>
+                </section>
+
+                <section aria-labelledby="plateformes-en-ligne">
+                    <h3 id="plateformes-en-ligne">5. Plateformes en ligne spécialisées</h3>
+                    <p>La recherche de stage au Maroc est grandement facilitée par l'existence de plusieurs plateformes en ligne dédiées. Ces sites regroupent des milliers d'offres de stage dans divers secteurs et pour différents types de profils.</p>
+
+                    <h4>Sites web incontournables :</h4>
+                    <ul>
+                        <li><strong>Stagiaires.ma:</strong> C'est la plateforme de référence pour les stages et les premiers emplois au Maroc. Elle propose des milliers d'offres et dispose d'une CVthèque pour les étudiants et jeunes diplômés.</li>
+                        <li><strong>Stage.ma:</strong> Un autre site majeur qui se concentre exclusivement sur les offres de stage. Il permet de filtrer les offres par domaine, type de stage (PFE, pré-embauche, rémunéré) et mode de travail (présentiel, à distance).</li>
+                        <li><strong>Dreamjob.ma:</strong> Cette plateforme propose des offres d'emploi et de stage, y compris des stages de pré-embauche et des projets de fin d'études (PFE).</li>
+                        <li><strong>ReKrute.com:</strong> Un portail d'emploi généraliste qui liste également de nombreuses offres de stage au Maroc.</li>
+                        <li><strong>Optioncarriere.ma:</strong> Un autre moteur de recherche d'emploi qui agrège des offres de stage provenant de diverses sources.</li>
+                    </ul>
+                </section>
+
+                <hr>
+
+                <section class="sources" aria-labelledby="sources-heading">
+                    <h3 id="sources-heading">Sources et sites web importants</h3>
+                    <ul class="contact-list">
+                        <li><a href="https://www.stagiaires.ma/" target="_blank" rel="noopener noreferrer">Stagiaires.ma</a></li>
+                        <li><a href="https://www.stage.ma/" target="_blank" rel="noopener noreferrer">Stage.ma</a></li>
+                        <li><a href="https://www.dreamjob.ma/" target="_blank" rel="noopener noreferrer">Dreamjob.ma</a></li>
+                        <li><a href="https://www.rekrute.com/" target="_blank" rel="noopener noreferrer">ReKrute.com</a></li>
+                        <li><a href="https://www.optioncarriere.ma/" target="_blank" rel="noopener noreferrer">Optioncarriere.ma</a></li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-section" aria-labelledby="search-heading">
+        <div class="search-container">
+            <h2 id="search-heading">Trouvez le stage idéal</h2>
+            <form class="search-form" role="search" aria-label="Recherche de stage" id="internshipSearchForm">
+                <div class="form-group">
+                    <label for="domain">Domaine</label>
+                    <select id="domain" class="form-control" aria-label="Sélectionnez un domaine">
+                        <option value="">Tous les domaines</option>
+                        <option value="data-science">Data Science</option>
+                        <option value="web-development">Développement Web</option>
+                        <option value="cloud-engineering">Cloud Engineering</option>
+                        <option value="cybersecurity">Cybersécurité</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="location">Localisation</label>
+                    <select id="location" class="form-control" aria-label="Sélectionnez une localisation">
+                        <option value="">Tout le Maroc</option>
+                        <option value="casablanca">Casablanca</option>
+                        <option value="rabat">Rabat</option>
+                        <option value="marrakech">Marrakech</option>
+                        <option value="tanger">Tanger</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="type">Type de stage</label>
+                    <select id="type" class="form-control" aria-label="Sélectionnez un type de stage">
+                        <option value="">Tous les types</option>
+                        <option value="remote">Télétravail</option>
+                        <option value="on-site">Sur site</option>
+                        <option value="hybrid">Hybride</option>
+                    </select>
+                </div>
+                <button type="submit" class="search-btn">Rechercher</button>
+            </form>
+            <p>Vous pouvez également <a href="#recherche-stage">consulter notre guide complet</a> pour optimiser votre recherche de stage.</p>
+        </div>
+        
+        <!-- Results Section -->
+        <div id="internshipResults" style="display: none; margin-top: 40px;">
+            <div class="search-container">
+                <h3 id="resultsTitle">Résultats de recherche</h3>
+                <div id="resultsList" class="results-grid"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>EsiCareerBridge</h3>
+                    <p>La plateforme intelligente qui transforme la recherche de stage en expérience d'apprentissage complet.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Liens rapides</h3>
+                    <ul class="footer-links">
+                        <li><a href="accueil.html">Accueil</a></li>
+                        <li><a href="linkedin.html">Optimisation LinkedIn</a></li>
+                        <li><a href="stage.html">Recherche de Stage</a></li>
+                        <li><a href="soft.html">Soft Skills</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Ressources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Guide des stages</a></li>
+                        <li><a href="#">Développement des soft skills</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Nous contacter</a></li>
+                        <li><a href="mailto:contact@esicareerbridge.com">contact@esicareerbridge.com</a></li>
+                        <li><a href="tel:+221338765432">+221 33 876 54 32</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 EsiCareerBridge. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Site scripts for storage/auth/ui -->
+    <script src="js/storage.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/ui.js"></script>
+
+    <script>
+        // Initialize storage on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            try { setupAuthUI(); } catch (e) { console.warn('setupAuthUI not available', e); }
+            try { initializeStorage(); } catch (e) { console.warn('initializeStorage not available', e); }
+            
+            // Setup search form
+            const searchForm = document.getElementById('internshipSearchForm');
+            if (searchForm) {
+                searchForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    performInternshipSearch();
+                });
+            }
+        });
+        
+        // Perform internship search
+        function performInternshipSearch() {
+            const domain = document.getElementById('domain').value.toLowerCase();
+            const location = document.getElementById('location').value.toLowerCase();
+            const remoteType = document.getElementById('type').value.toLowerCase();
+            
+            // Get all internships
+            let internships = [];
+            try {
+                internships = getInternships() || [];
+            } catch (e) {
+                console.error('Error getting internships:', e);
+            }
+            
+            // Filter internships
+            let results = internships.filter(internship => {
+                let matches = true;
+                
+                // Filter by domain (based on title)
+                if (domain) {
+                    const titleLower = internship.title.toLowerCase();
+                    if (domain === 'data-science' && !titleLower.includes('data')) matches = false;
+                    if (domain === 'web-development' && !titleLower.includes('web')) matches = false;
+                    if (domain === 'cloud-engineering' && !titleLower.includes('cloud')) matches = false;
+                    if (domain === 'cybersecurity' && !titleLower.includes('cyber') && !titleLower.includes('security')) matches = false;
+                }
+                
+                // Filter by location
+                if (location && internship.location.toLowerCase() !== location) {
+                    matches = false;
+                }
+                
+                // Filter by remote type
+                if (remoteType && internship.remoteType !== remoteType) {
+                    matches = false;
+                }
+                
+                return matches;
+            });
+            
+            displaySearchResults(results);
+        }
+        
+        // Display search results
+        function displaySearchResults(results) {
+            const resultsContainer = document.getElementById('internshipResults');
+            const resultsList = document.getElementById('resultsList');
+            const resultsTitle = document.getElementById('resultsTitle');
+            
+            resultsList.innerHTML = '';
+            
+            if (results.length === 0) {
+                resultsList.innerHTML = '<div class="no-results"><p>❌ Aucun stage ne correspond à vos critères. Veuillez ajuster vos filtres.</p></div>';
+                resultsTitle.textContent = 'Pas de résultats';
+            } else {
+                resultsTitle.textContent = `${results.length} stage(s) trouvé(s)`;
+                
+                results.forEach(internship => {
+                    const company = getCompanyById(internship.companyId);
+                    const card = document.createElement('div');
+                    card.className = 'internship-result-card';
+                    card.innerHTML = `
+                        <h4>${internship.title}</h4>
+                        <div class="company-name">${company ? company.name : 'Entreprise'}</div>
+                        <div class="location">${internship.location}</div>
+                        <div class="salary">${internship.salaryMin.toLocaleString()} - ${internship.salaryMax.toLocaleString()} MAD/mois</div>
+                        <div class="duration">${internship.durationMonths} mois</div>
+                        <span class="remote-type">${internship.remoteType === 'on-site' ? 'Sur site' : internship.remoteType === 'remote' ? 'Télétravail' : 'Hybride'}</span>
+                        <p style="margin: 12px 0; color: #666; font-size: 0.9rem;">${internship.description}</p>
+                        <button class="apply-btn" onclick="applyForInternship(${internship.id})">Postuler</button>
+                    `;
+                    resultsList.appendChild(card);
+                });
+            }
+            
+            resultsContainer.style.display = 'block';
+            resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        
+        // Apply for internship
+        function applyForInternship(internshipId) {
+            const currentUser = getCurrentUser();
+            
+            if (!currentUser) {
+                alert('Veuillez vous connecter pour postuler.');
+                window.location.href = 'login.html';
+                return;
+            }
+            
+            try {
+                const applications = JSON.parse(localStorage.getItem('applications')) || [];
+                const newApplication = {
+                    id: Date.now(),
+                    userId: currentUser.id,
+                    internshipId: internshipId,
+                    appliedAt: new Date().toISOString(),
+                    status: 'pending'
+                };
+                
+                applications.push(newApplication);
+                localStorage.setItem('applications', JSON.stringify(applications));
+                
+                alert('✅ Candidature envoyée avec succès!');
+            } catch (e) {
+                alert('❌ Erreur lors de l\'envoi de la candidature.');
+                console.error(e);
+            }
+        }
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

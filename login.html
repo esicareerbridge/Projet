@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EsiCareerBridge - Se Connecter</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .login-container {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 450px;
+            padding: 50px 40px;
+            animation: slideIn 0.5s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .logo-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .logo-section img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .logo-text {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .logo-text span {
+            color: #e74c3c;
+        }
+        
+        .logo-subtitle {
+            font-size: 14px;
+            color: #7f8c8d;
+            font-weight: 500;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 14px;
+            margin-bottom: 40px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        label {
+            display: block;
+            color: #2c3e50;
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ecf0f1;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: all 0.3s ease;
+            background-color: #f8f9fa;
+        }
+        
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            outline: none;
+            border-color: #3498db;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(52, 152, 219, 0.2);
+        }
+        
+        .remember-forgot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            font-size: 13px;
+        }
+        
+        .remember-forgot label {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            color: #555;
+            font-weight: 500;
+        }
+        
+        .remember-forgot input[type="checkbox"] {
+            margin-right: 6px;
+            cursor: pointer;
+            width: 16px;
+            height: 16px;
+            accent-color: #3498db;
+        }
+        
+        .forgot-password {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .forgot-password:hover {
+            color: #2980b9;
+        }
+        
+        .login-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+        }
+        
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+        }
+        
+        .login-btn:active {
+            transform: translateY(0);
+        }
+        
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 30px 0;
+        }
+        
+        .divider-line {
+            flex: 1;
+            height: 1px;
+            background-color: #ecf0f1;
+        }
+        
+        .divider-text {
+            padding: 0 12px;
+            color: #7f8c8d;
+            font-size: 13px;
+            font-weight: 500;
+        }
+        
+        .social-login {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+        
+        .social-btn {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #ecf0f1;
+            background-color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            color: #2c3e50;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .social-btn:hover {
+            border-color: #3498db;
+            background-color: #f8f9fa;
+        }
+        
+        .signup-link {
+            text-align: center;
+            color: #555;
+            font-size: 14px;
+        }
+        
+        .signup-link a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .signup-link a:hover {
+            color: #2980b9;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 40px;
+            transition: color 0.3s;
+        }
+        
+        .back-link:hover {
+            color: #ecf0f1;
+        }
+        
+        .back-link::before {
+            content: "←";
+            margin-right: 8px;
+            font-size: 18px;
+        }
+        
+        .error-message {
+            background-color: #ffe6e6;
+            border: 1px solid #ffcccc;
+            color: #c0392b;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            display: none;
+        }
+        
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 35px 25px;
+            }
+            
+            h1 {
+                font-size: 20px;
+            }
+            
+            .logo-section img {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .logo-text {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<a href="accueil.html" class="back-link">Retour à l'accueil</a>
+
+<div class="login-container">
+    <div class="logo-section">
+        <img src="media/logo.png" alt="EsiCareerBridge Logo">
+        <div class="logo-text">Esi<span>CareerBridge</span></div>
+        <div class="logo-subtitle">Plateforme de Développement Professionnel</div>
+    </div>
+    
+    <h1>Se Connecter</h1>
+    <p class="subtitle">Accédez à votre compte et continuez votre parcours</p>
+    
+    <div class="error-message" id="errorMessage"></div>
+    
+    <form id="loginForm">
+        <div class="form-group">
+            <label for="email">Adresse Email</label>
+            <input type="email" id="email" name="email" placeholder="vous@exemple.com" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="password">Mot de passe</label>
+            <input type="password" id="password" name="password" placeholder="••••••••" required>
+        </div>
+        
+        <div class="remember-forgot">
+            <label>
+                <input type="checkbox" id="remember" name="remember">
+                Se souvenir de moi
+            </label>
+            <a href="#" class="forgot-password">Mot de passe oublié?</a>
+        </div>
+        
+        <button type="submit" class="login-btn">Se Connecter</button>
+    </form>
+    
+    <div class="divider">
+        <div class="divider-line"></div>
+        <div class="divider-text">OU</div>
+        <div class="divider-line"></div>
+    </div>
+    
+    <div class="social-login">
+        <a href="#" class="social-btn">
+            <span>f</span> Facebook
+        </a>
+        <a href="#" class="social-btn">
+            <span>G</span> Google
+        </a>
+        <a href="#" class="social-btn">
+            <span>in</span> LinkedIn
+        </a>
+    </div>
+    
+    <div class="signup-link">
+        Vous n'avez pas de compte? <a href="#">S'inscrire maintenant</a>
+    </div>
+</div>
+
+<script src="js/storage.js"></script>
+<script src="js/auth.js"></script>
+
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const errorMessage = document.getElementById('errorMessage');
+        
+        // Validation
+        if (!email || !password) {
+            errorMessage.textContent = 'Veuillez remplir tous les champs';
+            errorMessage.style.display = 'block';
+            return;
+        }
+        
+        if (!email.includes('@')) {
+            errorMessage.textContent = 'Veuillez entrer une adresse email valide';
+            errorMessage.style.display = 'block';
+            return;
+        }
+        
+        if (password.length < 6) {
+            errorMessage.textContent = 'Le mot de passe doit contenir au moins 6 caractères';
+            errorMessage.style.display = 'block';
+            return;
+        }
+        
+        // Login user
+        const result = loginUser(email, password);
+        
+        if (result.success) {
+            // Get the user object and set it as current user
+            const user = getUserByEmail(email);
+            setCurrentUser(user);
+            setupAuthUI(); // Update navbar immediately
+            
+            errorMessage.style.display = 'none';
+            showNotification('Connexion réussie! Bienvenue à EsiCareerBridge', 'success');
+            setTimeout(() => {
+                window.location.href = 'accueil.html';
+            }, 1500);
+        } else {
+            errorMessage.textContent = result.message;
+            errorMessage.style.display = 'block';
+        }
+    });
+    
+    // Show registration form
+    document.querySelectorAll('.signup-link a')[0].addEventListener('click', function(e) {
+        e.preventDefault();
+        showRegistrationForm();
+    });
+    
+    // Clear error message when user starts typing
+    document.getElementById('email').addEventListener('input', function() {
+        document.getElementById('errorMessage').style.display = 'none';
+    });
+    
+    document.getElementById('password').addEventListener('input', function() {
+        document.getElementById('errorMessage').style.display = 'none';
+    });
+    
+    function showRegistrationForm() {
+        const loginForm = document.querySelector('.login-container');
+        loginForm.innerHTML = `
+            <div class="logo-section">
+                <img src="media/logo.png" alt="EsiCareerBridge Logo">
+                <div class="logo-text">Esi<span>CareerBridge</span></div>
+                <div class="logo-subtitle">Plateforme de Développement Professionnel</div>
+            </div>
+            
+            <h1>S'inscrire</h1>
+            <p class="subtitle">Créez votre compte pour commencer</p>
+            
+            <div class="error-message" id="errorMessage"></div>
+            
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="fullName">Nom Complet</label>
+                    <input type="text" id="fullName" name="fullName" placeholder="Votre nom complet" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="regEmail">Adresse Email</label>
+                    <input type="email" id="regEmail" name="email" placeholder="vous@exemple.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="regPassword">Mot de passe</label>
+                    <input type="password" id="regPassword" name="password" placeholder="••••••••" required>
+                </div>
+                
+                <button type="submit" class="login-btn">S'inscrire</button>
+            </form>
+            
+            <div class="signup-link">
+                Vous avez déjà un compte? <a href="#" onclick="location.reload()">Se connecter</a>
+            </div>
+        `;
+        
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('regEmail').value;
+            const password = document.getElementById('regPassword').value;
+            const errorMessage = document.getElementById('errorMessage');
+            
+            if (!fullName || !email || !password) {
+                errorMessage.textContent = 'Veuillez remplir tous les champs';
+                errorMessage.style.display = 'block';
+                return;
+            }
+            
+            if (password.length < 6) {
+                errorMessage.textContent = 'Le mot de passe doit contenir au moins 6 caractères';
+                errorMessage.style.display = 'block';
+                return;
+            }
+            
+            const result = registerUser(email, password, fullName, 'student');
+            
+            if (result.success) {
+                errorMessage.style.display = 'none';
+                showNotification('Inscription réussie! Redirection vers la connexion...', 'success');
+                
+                // Auto-login the user
+                setTimeout(() => {
+                    const user = getUserByEmail(email);
+                    setCurrentUser(user);
+                    setupAuthUI(); // Update navbar immediately
+                    window.location.href = 'accueil.html';
+                }, 1500);
+            } else {
+                errorMessage.textContent = result.message;
+                errorMessage.style.display = 'block';
+            }
+        });
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Développement des Compétences Clés</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        
+        header {
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo img {
+            width: 48px;
+            height: 48px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+        
+        .logo-text span {
+            color: #e74c3c;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #3498db;
+        }
+        
+        .cta-button {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        
+        .cta-button:hover {
+            background-color: #c0392b;
+        }
+        
+        .content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1, h2 {
+            color: #2c3e50;
+        }
+        
+        h1 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        h2 {
+            margin-top: 30px;
+            padding-left: 10px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .transition-paragraph {
+            background-color: #e8f4fc;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 25px 0;
+            border-left: 4px solid #3498db;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .skill-section {
+            margin-bottom: 30px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .week-section {
+            margin-bottom: 40px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .week-objective {
+            font-style: italic;
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="media/logo.png" alt="EsiCareerBridge Logo">
+                <div class="logo-text">Esi<span>CareerBridge</span></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="accueil.html">Accueil</a></li>
+                <li><a href="linkedin.html">Optimisation LinkedIn</a></li>
+                <li><a href="stage.html">Recherche de Stage</a></li>
+                <li><a href="soft.html">Soft Skills</a></li>
+                <li><a href="index.html">Avis et Suggestions</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="cta-button" onclick="window.location.href='login.html'">Se connecter</button>
+        </nav>
+    </div>
+</header>
+
+<!-- Hero Section -->
+<section style="background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%); color: white; padding: 100px 0; text-align: center;">
+    <div class="container">
+        <h1 style="font-size: 3rem; margin-bottom: 20px; line-height: 1.2; color: white; border: none;">Développez Vos Compétences Clés</h1>
+        <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto 30px; opacity: 0.9;">Maîtrisez les soft skills essentiels pour réussir votre carrière professionnelle</p>
+        <div style="display: flex; gap: 15px; justify-content: center; margin-top: 30px;">
+            <button style="background-color: #e74c3c; color: white; padding: 12px 30px; border: none; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: background-color 0.3s;" onclick="document.querySelector('.content-wrapper').scrollIntoView({behavior: 'smooth'})">Voir le guide complet</button>
+        </div>
+    </div>
+</section>
+
+<div class="content-wrapper">
+    <h1>Développement des Compétences Clés</h1>
+    
+    <div class="skill-section">
+        <p>Dans le monde professionnel actuel, posséder des compétences techniques ne suffit plus. Le développement des soft skills, ou compétences comportementales, est essentiel pour s'adapter, collaborer efficacement et réussir dans tous les domaines. Ce guide présente les compétences clés à développer et des méthodes concrètes pour les renforcer au quotidien.</p>
+        
+        <h2>1. Pensée Critique</h2>
+        <p><strong>Importance :</strong> Permet d'analyser l'information de manière objective, d'évaluer les preuves et de prendre des décisions raisonnées.</p>
+        <p><strong>Méthodes de Développement :</strong></p>
+        <ul>
+            <li>Participer à des débats ou discussions qui remettent en question vos points de vue.</li>
+            <li>Analyser des problèmes réels et identifier les erreurs logiques dans les arguments.</li>
+            <li>Lire des articles analytiques et résumer leurs points clés et hypothèses.</li>
+        </ul>
+        
+        <h2>2. Communication</h2>
+        <p><strong>Importance :</strong> Une communication efficace permet de transmettre et de faire comprendre clairement les idées, à l'écrit comme à l'oral.</p>
+        <p><strong>Méthodes de Développement :</strong></p>
+        <ul>
+            <li>Pratiquer régulièrement la prise de parole en public et les présentations.</li>
+            <li>Enregistrer et revoir vos communications pour identifier les axes d'amélioration.</li>
+            <li>Lire des matériaux variés pour enrichir votre vocabulaire et votre style d'expression.</li>
+        </ul>
+        
+        <h2>3. Travail d'Équipe</h2>
+        <p><strong>Importance :</strong> La collaboration augmente la productivité et favorise l'innovation grâce à la diversité des perspectives.</p>
+        <p><strong>Méthodes de Développement :</strong></p>
+        <ul>
+            <li>Participer à des projets de groupe et assumer différents rôles au sein de l'équipe.</li>
+            <li>Fournir et demander des retours constructifs pour renforcer la coopération.</li>
+            <li>Observer des équipes performantes pour comprendre leurs stratégies de communication et de coordination.</li>
+        </ul>
+        
+        <h2>4. Résolution de Problèmes</h2>
+        <p><strong>Importance :</strong> La capacité à identifier, analyser et résoudre efficacement les problèmes est essentielle dans tout domaine professionnel.</p>
+        <p><strong>Méthodes de Développement :</strong></p>
+        <ul>
+            <li>Appliquer des méthodes structurées comme l'analyse des causes profondes ou la technique des « 5 Pourquoi ».</li>
+            <li>Travailler sur des défis pratiques, études de cas ou simulations.</li>
+            <li>Réfléchir aux problèmes passés pour évaluer quelles stratégies ont été les plus efficaces.</li>
+        </ul>
+        
+        <h2>5. Adaptabilité</h2>
+        <p><strong>Importance :</strong> L'adaptabilité permet de rester efficace dans des environnements en évolution rapide.</p>
+        <p><strong>Méthodes de Développement :</strong></p>
+        <ul>
+            <li>Se confronter régulièrement à de nouvelles expériences d'apprentissage ou technologies.</li>
+            <li>Demander des retours après des changements ou défis pour évaluer votre réaction.</li>
+            <li>Pratiquer la flexibilité en travaillant dans différentes conditions ou avec des équipes variées.</li>
+        </ul>
+        
+        <h2>6. Gestion du Temps</h2>
+        <p><strong>Importance :</strong> L'utilisation efficace du temps améliore la productivité et réduit le stress.</p>
+        <p><strong>Méthodes de Développement :</strong></p>
+        <ul>
+            <li>Utiliser des outils comme des agendas ou applications de gestion de tâches pour prioriser le travail.</li>
+            <li>Appliquer des techniques de gestion du temps telles que la méthode Pomodoro.</li>
+            <li>Réfléchir chaque semaine à l'utilisation du temps et ajuster les priorités en conséquence.</li>
+        </ul>
+        
+        <h2>7. Intelligence Émotionnelle</h2>
+        <p><strong>Importance :</strong> L'intelligence émotionnelle renforce les relations interpersonnelles et soutient un leadership efficace.</p>
+        <p><strong>Méthodes de Développement :</strong></p>
+        <ul>
+            <li>Pratiquer la conscience de soi en identifiant les déclencheurs et patterns émotionnels.</li>
+            <li>Développer l'empathie par l'écoute active et la prise de perspective.</li>
+            <li>Apprendre à réguler les émotions lors de situations stressantes grâce à la pleine conscience ou la réflexion.</li>
+        </ul>
+        
+        <h2>8. Leadership</h2>
+        <p><strong>Importance :</strong> Le leadership consiste à guider et motiver les autres vers des objectifs communs.</p>
+        <p><strong>Méthodes de Développement :</strong></p>
+        <ul>
+            <li>Prendre l'initiative dans des projets, même de manière informelle.</li>
+            <li>Étudier des modèles de leadership et appliquer les enseignements dans des contextes pratiques.</li>
+            <li>Encourager et encadrer vos pairs pour favoriser la croissance collective.</li>
+        </ul>
+        
+        <h2>9. Créativité</h2>
+        <p><strong>Importance :</strong> La créativité stimule l'innovation et la résolution de problèmes en générant des idées originales.</p>
+        <p><strong>Méthodes de Développement :</strong></p>
+        <ul>
+            <li>Expérimenter avec des techniques de brainstorming et de mind-mapping.</li>
+            <li>Explorer des disciplines diverses pour acquérir de nouvelles perspectives.</li>
+            <li>Se lancer des défis nécessitant une pensée non conventionnelle ou l'utilisation de ressources limitées.</li>
+        </ul>
+        
+        <h2>10. Networking (Réseautage)</h2>
+        <p><strong>Importance :</strong> Construire des relations professionnelles élargit les opportunités et le partage de connaissances.</p>
+        <p><strong>Méthodes de Développement :</strong></p>
+        <ul>
+            <li>Participer à des événements, ateliers ou communautés en ligne liés à votre domaine.</li>
+            <li>Maintenir la communication avec vos contacts via des interactions significatives.</li>
+            <li>Offrir collaboration ou aide aux autres avant de solliciter des faveurs.</li>
+        </ul>
+    </div>
+    
+    <div class="transition-paragraph">
+        <p>Maintenant que nous avons exploré les compétences clés et leurs méthodes de développement, il est temps de passer à la mise en pratique. Le plan suivant vous propose un programme structuré sur quatre semaines pour intégrer progressivement ces compétences dans votre quotidien. Ce plan d'action vous permettra de transformer la théorie en habitudes concrètes, en alternant entre développement personnel et interactions professionnelles.</p>
+    </div>
+    
+    <h1>Plan de Développement des Compétences</h1>
+    
+    <div class="week-section">
+        <h2>SEMAINE 1 : Gestion de soi et pensée critique</h2>
+        <p class="week-objective">Objectif : Développer le contrôle de ton temps, de tes pensées et de ton processus d'apprentissage.</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Jour</th>
+                    <th>Compétence</th>
+                    <th>Objectif</th>
+                    <th>Activité</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Jour 1-2</td>
+                    <td>Gestion du temps</td>
+                    <td>Planifier et prioriser efficacement.</td>
+                    <td>Crée un emploi du temps hebdomadaire. Utilise la technique Pomodoro (25 min de concentration + 5 min de pause). À la fin de chaque journée, évalue comment ton temps a été utilisé.</td>
+                </tr>
+                <tr>
+                    <td>Jour 3-4</td>
+                    <td>Pensée critique</td>
+                    <td>Renforcer le raisonnement logique.</td>
+                    <td>Analyse un article ou une actualité : sépare les faits des opinions. Rédige un court résumé expliquant ton raisonnement.</td>
+                </tr>
+                <tr>
+                    <td>Jour 5-6</td>
+                    <td>Résolution de problèmes</td>
+                    <td>Améliorer la pensée structurée.</td>
+                    <td>Choisis un vrai problème (académique, social ou technique). Applique la méthode des « 5 Pourquoi » pour trouver la cause racine.</td>
+                </tr>
+                <tr>
+                    <td>Jour 7</td>
+                    <td>Adaptabilité</td>
+                    <td>Gérer le changement avec calme.</td>
+                    <td>Essaie une nouvelle routine, découvre un nouvel outil ou étudie dans un endroit différent. Réfléchis à ce qui t'a aidé à t'adapter le plus rapidement.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="week-section">
+        <h2>SEMAINE 2 : Communication et travail d'équipe</h2>
+        <p class="week-objective">Objectif : Apprendre à exprimer clairement tes idées et à collaborer efficacement.</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Jour</th>
+                    <th>Compétence</th>
+                    <th>Objectif</th>
+                    <th>Activité</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Jour 8-9</td>
+                    <td>Communication</td>
+                    <td>Améliorer la clarté et la confiance.</td>
+                    <td>Enregistre une présentation de 2 minutes sur n'importe quel sujet. Réécoute-toi et repère les parties peu claires. Réécris un message ou un e-mail pour le rendre plus concis.</td>
+                </tr>
+                <tr>
+                    <td>Jour 10-11</td>
+                    <td>Travail d'équipe</td>
+                    <td>Travailler efficacement avec les autres.</td>
+                    <td>Participe à un petit projet d'équipe ou simule-en un. Propose-toi pour coordonner une petite tâche. Demande un retour à la fin.</td>
+                </tr>
+                <tr>
+                    <td>Jour 12-13</td>
+                    <td>Intelligence émotionnelle</td>
+                    <td>Gérer ses émotions et comprendre celles des autres.</td>
+                    <td>Observe tes réactions pendant la journée. Note ce qui déclenche ton stress ou ta frustration et comment tu y as réagi.</td>
+                </tr>
+                <tr>
+                    <td>Jour 14</td>
+                    <td>Réseautage</td>
+                    <td>Créer des connexions.</td>
+                    <td>Connecte-toi avec 3 à 5 personnes sur LinkedIn ou à l'école. Rédige un message poli pour te présenter ou commenter une publication.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="week-section">
+        <h2>SEMAINE 3 : Leadership et créativité</h2>
+        <p class="week-objective">Objectif : Développer l'initiative et la pensée innovante.</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Jour</th>
+                    <th>Compétence</th>
+                    <th>Objectif</th>
+                    <th>Activité</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Jour 15-16</td>
+                    <td>Leadership</td>
+                    <td>Prendre des initiatives et guider les autres.</td>
+                    <td>Dirige une petite tâche de groupe ou une session d'étude en ligne. Concentre-toi sur la motivation plutôt que sur le contrôle. Réfléchis ensuite à ce qui a fonctionné.</td>
+                </tr>
+                <tr>
+                    <td>Jour 17-18</td>
+                    <td>Créativité</td>
+                    <td>Encourager la pensée innovante.</td>
+                    <td>Mets un minuteur de 10 minutes et note autant d'idées nouvelles que possible sur un sujet. Ne juge pas les idées, écris simplement.</td>
+                </tr>
+                <tr>
+                    <td>Jour 19-21</td>
+                    <td>Pratique d'intégration</td>
+                    <td>Combiner leadership, créativité et travail d'équipe.</td>
+                    <td>Réalise un mini-projet (présentation, infographie ou article de blog). Gère ton temps, résous des problèmes et demande un retour à quelqu'un.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="week-section">
+        <h2>SEMAINE 4 : Application et réflexion</h2>
+        <p class="week-objective">Objectif : Utiliser toutes les compétences ensemble et évaluer les progrès.</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Jour</th>
+                    <th>Compétence</th>
+                    <th>Objectif</th>
+                    <th>Activité</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Jour 22-25</td>
+                    <td>Intégration des compétences</td>
+                    <td>Appliquer les compétences acquises dans un défi unique.</td>
+                    <td>Choisis un projet (académique ou personnel). Planifie-le avec la gestion du temps, communique ton idée, résous les problèmes de manière créative et collabore si possible.</td>
+                </tr>
+                <tr>
+                    <td>Jour 26-27</td>
+                    <td>Évaluation</td>
+                    <td>Évaluer la progression et les lacunes.</td>
+                    <td>Rédige une réflexion d'une page sur les changements dans ta communication, ta pensée et ta confiance. Demande un retour à un camarade.</td>
+                </tr>
+                <tr>
+                    <td>Jour 28-30</td>
+                    <td>Renforcement</td>
+                    <td>Créer des habitudes pour une amélioration à long terme.</td>
+                    <td>Choisis 3 compétences à continuer de développer. Fixe-toi des objectifs hebdomadaires pour le mois suivant (ex : « 2 conversations de réseautage », « 1 journal d'idées créatives », « 3 sessions Pomodoro par jour »).</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="js/storage.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/ui.js"></script>
+
+</body>
+</html>

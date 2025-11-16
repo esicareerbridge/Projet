@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EsiCareerBridge - Contact</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo img {
+            width: 48px;
+            height: 48px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+        
+        .logo-text span {
+            color: #e74c3c;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #3498db;
+        }
+        
+        .cta-button {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        
+        .cta-button:hover {
+            background-color: #c0392b;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            text-align: center;
+            padding: 120px 20px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 22px;
+            max-width: 800px;
+            margin: auto;
+        }
+        
+        .content-section {
+            padding: 60px 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #2c3e50;
+            font-size: 36px;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .contact-info {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-info h3 {
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+        
+        .info-item {
+            margin-bottom: 25px;
+        }
+        
+        .info-item h4 {
+            color: #3498db;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .info-item p {
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .contact-form {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-form h3 {
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        
+        .submit-btn {
+            background-color: #e74c3c;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+        
+        .submit-btn:hover {
+            background-color: #c0392b;
+        }
+        
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="media/logo.png" alt="EsiCareerBridge Logo">
+                <div class="logo-text">Esi<span>CareerBridge</span></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="accueil.html">Accueil</a></li>
+                <li><a href="linkedin.html">Optimisation LinkedIn</a></li>
+                <li><a href="stage.html">Recherche de Stage</a></li>
+                <li><a href="soft.html">Soft Skills</a></li>
+                <li><a href="index.html">Avis et Suggestions</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="cta-button" onclick="window.location.href='login.html'">Se connecter</button>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container">
+        <h1>Nous Contacter</h1>
+        <p>Envoyez-nous vos questions, commentaires ou suggestions</p>
+    </div>
+</section>
+
+<section class="content-section">
+    <div class="container">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Informations de Contact</h3>
+                
+                <div class="info-item">
+                    <h4>📍 Adresse</h4>
+                    <p>École Supérieure d'Informatique<br>
+                    Rabat, Maroc</p>
+                </div>
+                
+                <div class="info-item">
+                    <h4>📧 Email</h4>
+                    <p><a href="mailto:contact@esicareerbridge.com" style="color: #3498db; text-decoration: none;">contact@esicareerbridge.com</a></p>
+                </div>
+                
+                <div class="info-item">
+                    <h4>📞 Téléphone</h4>
+                    <p><a href="tel:+212612345678" style="color: #3498db; text-decoration: none;">+212 6 12 34 56 78</a></p>
+                </div>
+                
+                <div class="info-item">
+                    <h4>🕒 Heures d'Ouverture</h4>
+                    <p>Lundi - Vendredi: 9:00 - 18:00<br>
+                    Samedi - Dimanche: Fermé</p>
+                </div>
+                
+                <div class="info-item">
+                    <h4>🌐 Réseaux Sociaux</h4>
+                    <p>
+                        <a href="#" style="color: #3498db; text-decoration: none; margin-right: 15px;">LinkedIn</a>
+                        <a href="#" style="color: #3498db; text-decoration: none; margin-right: 15px;">Facebook</a>
+                        <a href="#" style="color: #3498db; text-decoration: none;">Twitter</a>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <h3>Envoyez-nous un Message</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="nom">Nom Complet</label>
+                        <input type="text" id="nom" name="nom" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="sujet">Sujet</label>
+                        <input type="text" id="sujet" name="sujet" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Envoyer</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>Plateforme collaborative pour aider les étudiants à trouver les meilleurs stages</p>
+    <p>© 2025 EsiCareerBridge. Tous droits réservés.</p>
+</footer>
+
+<script src="js/storage.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/ui.js"></script>
+<script>
+    document.querySelector('form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const name = document.querySelector('input[name="name"]').value;
+        const email = document.querySelector('input[name="email"]').value;
+        const subject = document.querySelector('input[name="subject"]').value;
+        const message = document.querySelector('textarea[name="message"]').value;
+        
+        if (!name || !email || !subject || !message) {
+            alert('Veuillez remplir tous les champs');
+            return;
+        }
+        
+        const result = submitContact({
+            name: name,
+            email: email,
+            subject: subject,
+            message: message
+        });
+        
+        if (result.success) {
+            alert('Votre message a été envoyé avec succès!');
+            this.reset();
+        } else {
+            alert('Erreur lors de l\'envoi du message');
+        }
+    });
+</script>
+    });
+</script>
+
+</body>
+</html>

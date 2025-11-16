@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plateforme de Stages - Avis et Suggestions</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        /* Navigation styles */
+        nav {
+            background-color: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border-bottom: 1px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 4rem;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .logo-icon {
+            width: 2rem;
+            height: 2rem;
+            color: #2563eb;
+        }
+        
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #1f2937;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .nav-button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+        
+        .nav-button.active {
+            background-color: #2563eb;
+            color: white;
+        }
+        
+        .nav-button:not(.active) {
+            color: #374151;
+            background-color: transparent;
+        }
+        
+        .nav-button:not(.active):hover {
+            background-color: #f3f4f6;
+        }
+        
+        .nav-icon {
+            width: 1rem;
+            height: 1rem;
+        }
+        
+        /* Main content styles */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        .section {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        h1 {
+            font-size: 2rem;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+        
+        h2 {
+            font-size: 1.5rem;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+        
+        h3 {
+            font-size: 1.25rem;
+            color: #1f2937;
+            margin-bottom: 0.75rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        .quote {
+            background-color: #f8f9fa;
+            border-left: 4px solid #2563eb;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-style: italic;
+        }
+        
+        .company-list {
+            list-style-type: none;
+        }
+        
+        .company-item {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .company-item:last-child {
+            border-bottom: none;
+        }
+        
+        .company-logo {
+            max-width: 100%;
+            height: auto;
+            margin: 1rem 0;
+            border-radius: 0.25rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        /* Footer styles */
+        footer {
+            background-color: white;
+            border-top: 1px solid #e5e7eb;
+            margin-top: 3rem;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 1rem;
+        }
+        
+        .footer-text {
+            text-align: center;
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+        
+        /* Success message styles */
+        .success-message {
+            background-color: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            animation: pulse 2s infinite;
+        }
+        
+        .success-icon {
+            width: 1.5rem;
+            height: 1.5rem;
+            color: #16a34a;
+        }
+        
+        .success-text {
+            color: #166534;
+        }
+        
+        .success-title {
+            font-weight: 500;
+        }
+        
+        .success-desc {
+            font-size: 0.875rem;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        /* Form styles */
+        .form-container {
+            max-width: 48rem;
+            margin: 0 auto;
+        }
+        
+        .form-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-title {
+            font-size: 1.875rem;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-description {
+            color: #6b7280;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #374151;
+        }
+        
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+        
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-button {
+            width: 100%;
+            background-color: #2563eb;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 0.375rem;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .form-button:hover {
+            background-color: #1d4ed8;
+        }
+        
+        .location-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .back-button {
+            color: #2563eb;
+            background: none;
+            border: none;
+            font-weight: 500;
+            cursor: pointer;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        .back-button:hover {
+            color: #1d4ed8;
+        }
+        
+        /* View management */
+        .view {
+            display: none;
+        }
+        
+        .view.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-content">
+                <div class="logo">
+                    <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14,2 14,8 20,8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10,9 9,9 8,9"></polyline>
+                    </svg>
+                    <span class="logo-text">Plateforme de Stages</span>
+                </div>
+                <div class="nav-buttons">
+                    <button class="nav-button active" data-view="questionnaire">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14,2 14,8 20,8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10,9 9,9 8,9"></polyline>
+                        </svg>
+                        Questionnaire
+                    </button>
+                    <button class="nav-button" data-view="suggestions">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M23 6l-9.5 9.5-5-5L1 18"></path>
+                            <polyline points="17,6 23,6 23,12"></polyline>
+                        </svg>
+                        Suggestions
+                    </button>
+                    <button class="nav-button" data-view="admin">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                            <polyline points="7.5,4.21 12,6.81 16.5,4.21"></polyline>
+                            <polyline points="7.5,19.79 7.5,14.6 3,12"></polyline>
+                            <polyline points="21,12 16.5,14.6 16.5,19.79"></polyline>
+                            <polyline points="3.27,6.96 12,12.01 20.73,6.96"></polyline>
+                            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                        </svg>
+                        Admin
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Success Message (hidden by default) -->
+        <div id="successMessage" class="success-message" style="display: none;">
+            <svg class="success-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22,4 12,14.01 9,11.01"></polyline>
+            </svg>
+            <div class="success-text">
+                <p class="success-title">Merci pour votre contribution!</p>
+                <p class="success-desc">Vos réponses ont été enregistrées avec succès.</p>
+            </div>
+        </div>
+
+        <!-- Questionnaire View -->
+        <div id="questionnaireView" class="view active">
+            <div class="form-container">
+                <div class="form-header">
+                    <h2 class="form-title">Partagez votre expérience de stage</h2>
+                    <p class="form-description">Aidez les futurs stagiaires en partageant vos recommandations</p>
+                </div>
+                <form id="questionnaireForm">
+                    <div class="form-group">
+                        <label class="form-label" for="name">Nom complet</label>
+                        <input type="text" id="name" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email</label>
+                        <input type="email" id="email" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="field">Domaine d'études</label>
+                        <select id="field" class="form-select" required>
+                            <option value="">Sélectionnez votre domaine</option>
+                            <option value="data-science">Data Science</option>
+                            <option value="cybersecurity">Cybersécurité</option>
+                            <option value="software-engineering">Ingénierie Logicielle</option>
+                            <option value="networking">Réseaux et Télécommunications</option>
+                            <option value="other">Autre</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="company">Entreprise de stage</label>
+                        <input type="text" id="company" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="location">Lieu du stage (ville)</label>
+                        <input type="text" id="location" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="duration">Durée du stage (mois)</label>
+                        <input type="number" id="duration" class="form-input" min="1" max="12" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="experience">Décrivez votre expérience de stage</label>
+                        <textarea id="experience" class="form-textarea" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="recommendation">Recommanderiez-vous cette entreprise?</label>
+                        <select id="recommendation" class="form-select" required>
+                            <option value="">Sélectionnez une option</option>
+                            <option value="highly">Fortement recommandé</option>
+                            <option value="moderately">Recommandé</option>
+                            <option value="neutral">Neutre</option>
+                            <option value="not">Non recommandé</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="form-button">Soumettre mon expérience</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Suggestions View -->
+        <div id="suggestionsView" class="view">
+            <div id="locationInputSection">
+                <div class="form-container">
+                    <div class="section">
+                        <h2 class="form-title">Découvrez les suggestions personnalisées</h2>
+                        <p class="form-description">Entrez votre ville pour voir les recommandations d'entreprises près de vous</p>
+                        <input type="text" id="userLocation" class="location-input" placeholder="Ex: Casablanca, Rabat, Marrakech...">
+                        <button id="showSuggestions" class="form-button">Voir les suggestions</button>
+                    </div>
+                </div>
+            </div>
+            <div id="suggestionsContent" style="display: none;">
+                <button id="backToLocation" class="back-button">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="15,18 9,12 15,6"></polyline>
+                    </svg>
+                    Changer de ville
+                </button>
+                
+                <!-- Content from the Word document -->
+                <div class="section">
+                    <h1>Avis et suggestions</h1>
+                    <p>Concernant les stages on peut suggérer à vous plusieurs entreprises à déposer votre CV et autres sites web oú vous pouvez chercher des stages dans votre filière de data science ou de Cybersécurité.</p>
+                    
+                    <ul class="company-list">
+                        <li class="company-item">
+                            <h2>1 -- l'Office National des Chemins de Fer (ONCF) :</h2>
+                            <img src="media/image2.png" alt="ONCF Logo" class="company-logo">
+                            <p>L'ONCF offre des nombreux stages dans différents domaines comme le data science, cybersécurité et de la logistique.</p>
+                            <div class="quote">
+                                <p>D'après HAMZA (Cyber sécurité) : "Je suis ravi de rejoindre l'ONCF en tant que stagiaire en cyber sécurité. Ce stage représente une excellente opportunité pour approfondir mes connaissances en protection des systèmes d'information et contribuer à la sécurisation des infrastructures ferroviaires."</p>
+                            </div>
+                        </li>
+                        
+                        <li class="company-item">
+                            <h2>2 -- Inwi et Orange :</h2>
+                            <img src="media/image3.png" alt="Inwi et Orange Logo" class="company-logo">
+                            <p>Ces entreprises offre un stage de qualité pour les étudiants talentueux dans la gestion des réseaux, cybersécurité et le commerce.</p>
+                            <div class="quote">
+                                <p>D'après WISSAL (Cybersécurité) : " Je suis ravie d'annoncer mon intégration en tant que stagiaire chez inwi. Ce stage représente une opportunité unique pour approfondir mes compétences en réseaux et cybersécurité... Il me permettra d'explorer différents aspects tels que la sécurisation des infrastructures, la gestion des firewalls, l'optimisation des réseaux ..."</p>
+                            </div>
+                        </li>
+                        
+                        <li class="company-item">
+                            <h2>3- Oracle :</h2>
+                            <img src="media/image4.png" alt="Oracle Logo" class="company-logo">
+                            <p>Oracle, qui a récemment renforcé sa présence dans le pays en inaugurant un centre de recherche et développement (R&D) à Casablanca, elle offre des stages dans des domaines de l'IA, cloud et data science.</p>
+                            <div class="quote">
+                                <p>Abdjallil (1ére année à l'ESI en data science) : " J'ai eu le plaisir et la chance d'avoir un stage de qualité chez Oracle pour renforcer mes connaissances en sciences de données."</p>
+                            </div>
+                        </li>
+                        
+                        <li class="company-item">
+                            <h2>4- 3T DEVELOPPEMENT MAROC :</h2>
+                            <img src="media/image5.png" alt="3T Développement Logo" class="company-logo">
+                            <p>3T Développement est un groupe multimarque dans le secteur de la restauration, du fitness et du retail. Depuis 2016,nous développons 10 marques sur différents segments, en France et à l'international comme O'tacos et Fitness Park.</p>
+                            <p>Depuis 2022, le groupe 3T Développement déploie la marque Fitness Park, en qualité de master franchisé sur l'intégralité du Royaume du Maroc. Elle offre souvent des stages en Data science.</p>
+                        </li>
+                        
+                        <li class="company-item">
+                            <h2>5- LOTUS CAPITAL GESTION:</h2>
+                            <img src="media/image6.png" alt="Lotus Capital Gestion Logo" class="company-logo">
+                            <p>Lotus Capital Gestion est la première société marocaine spécialisée dans le trading quantitatif et la fintech, se concentrant sur une variété de classes d'actifs. En intégrant l'expertise de traders expérimentés, d'analystes quantitatifs et de développeurs innovants, l'entreprise utilise des technologies de pointe pour surpasser les indices de référence grâce à des stratégies basées sur l'analyse de données et des modèles quantitatifs avancés.</p>
+                            <p>Lotus capital offre plusieurs stages dans Data science, cybersécurité et motion design.</p>
+                        </li>
+                        
+                        <li class="company-item">
+                            <h2>6- Sofrecom :</h2>
+                            <img src="media/image7.png" alt="Sofrecom Logo" class="company-logo">
+                            <p>Depuis sa création en 2000, Sofrecom Maroc s'est rapidement imposé comme un acteur clé dans le domaine des nouvelles technologies de l'information et de la communication. Grâce à ses activités variées, notamment en ingénierie logicielle, en conseil, en ingénierie de réseaux mobiles, ainsi qu'en veille technologique et concurrentielle, l'entreprise a su se démarquer sur le marché local.</p>
+                            <p>Sofrecom offre des stages dans : Data science ; ingénerie radio ; ingénerie IA et développement JAVA et PHP.</p>
+                        </li>
+                        
+                        <li class="company-item">
+                            <h2>7- Stagiaires.ma :</h2>
+                            <div style="display: flex; gap: 1rem;">
+                                <img src="media/image8.png" alt="Stagiaires.ma Logo 1" class="company-logo" style="max-width: 200px;">
+                                <img src="media/image9.png" alt="Stagiaires.ma Logo 2" class="company-logo" style="max-width: 200px;">
+                            </div>
+                            <p>Le site web "Stagaires.ma" vous offre des opportunités de recherche de stage dans votre zone de proche ou une zone précisée par vous-même, dans votre fillière de plus. Elle offre des stages à jours dans des entreprises grandes ; moyennes ou une start-up.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin View -->
+        <div id="adminView" class="view">
+            <div class="section">
+                <h2>Interface d'administration</h2>
+                <p>Cette section est réservée aux administrateurs de la plateforme.</p>
+                <p>Fonctionnalités disponibles :</p>
+                <ul>
+                    <li>Gestion des soumissions de stage</li>
+                    <li>Validation des avis et témoignages</li>
+                    <li>Ajout de nouvelles entreprises</li>
+                    <li>Statistiques d'utilisation</li>
+                </ul>
+                <div style="margin-top: 2rem;">
+                    <button class="form-button" style="width: auto; margin-right: 1rem;">Exporter les données</button>
+                    <button class="form-button" style="width: auto; background-color: #6b7280;">Gérer les utilisateurs</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <p class="footer-text">Plateforme collaborative pour aider les étudiants à trouver les meilleurs stages</p>
+        </div>
+    </footer>
+
+    <script>
+        // View management
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navigation buttons
+            const navButtons = document.querySelectorAll('.nav-button');
+            const views = document.querySelectorAll('.view');
+            
+            navButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetView = this.getAttribute('data-view');
+                    
+                    // Update active nav button
+                    navButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show target view
+                    views.forEach(view => view.classList.remove('active'));
+                    document.getElementById(`${targetView}View`).classList.add('active');
+                });
+            });
+            
+            // Questionnaire form submission
+            const questionnaireForm = document.getElementById('questionnaireForm');
+            const successMessage = document.getElementById('successMessage');
+            
+            questionnaireForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Show success message
+                successMessage.style.display = 'flex';
+                
+                // Hide form and show suggestions after delay
+                setTimeout(function() {
+                    successMessage.style.display = 'none';
+                    navButtons.forEach(btn => btn.classList.remove('active'));
+                    document.querySelector('[data-view="suggestions"]').classList.add('active');
+                    views.forEach(view => view.classList.remove('active'));
+                    document.getElementById('suggestionsView').classList.add('active');
+                }, 2000);
+            });
+            
+            // Location input for suggestions
+            const showSuggestionsBtn = document.getElementById('showSuggestions');
+            const locationInputSection = document.getElementById('locationInputSection');
+            const suggestionsContent = document.getElementById('suggestionsContent');
+            const backToLocationBtn = document.getElementById('backToLocation');
+            const userLocationInput = document.getElementById('userLocation');
+            
+            showSuggestionsBtn.addEventListener('click', function() {
+                if (userLocationInput.value.trim() !== '') {
+                    locationInputSection.style.display = 'none';
+                    suggestionsContent.style.display = 'block';
+                }
+            });
+            
+            backToLocationBtn.addEventListener('click', function() {
+                locationInputSection.style.display = 'block';
+                suggestionsContent.style.display = 'none';
+                userLocationInput.value = '';
+            });
+        });
+    </script>
+</body>
+</html>
